@@ -4,9 +4,14 @@ from jose import jwt
 from django.conf import settings
 from rest_framework.exceptions import AuthenticationFailed
 
-AUTH0_DOMAIN = 'dev-tbvg0u76pp8osw76.us.auth0.com'
-API_IDENTIFIER = 'https://dev-tbvg0u76pp8osw76.us.auth0.com/api/v2/'
-ALGORITHMS = ['RS256']
+from dotenv import load_dotenv
+import os
+
+load_dotenv()  # Load from .env
+
+AUTH0_DOMAIN = os.getenv('AUTH0_DOMAIN')
+API_IDENTIFIER = os.getenv('API_IDENTIFIER')
+ALGORITHMS = [os.getenv('ALGORITHMS')]
 
 def verify_jwt(request):
     auth = request.META.get("HTTP_AUTHORIZATION", None)

@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import { Auth0Provider } from '@auth0/auth0-react';
 
-const domain = "dev-tbvg0u76pp8osw76.us.auth0.com";
-const clientId = "OwJOQ5CsF2i0wkuwyCGme5hsbauLQeKI";
-const audience = "https://dev-tbvg0u76pp8osw76.us.auth0.com/api/v2/";
+const domain = process.env.REACT_APP_AUTH0_DOMAIN;
+const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
+const audience = process.env.REACT_APP_AUTH0_AUDIENCE;
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
